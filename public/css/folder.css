@@ -1,0 +1,192 @@
+/* public/css/folder.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Google Sans", Arial, sans-serif;
+  background: #f8f9fa;
+}
+
+/* Breadcrumb styling */
+.breadcrumb {
+  margin-top: 80px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #5f6368;
+  font-size: 14px;
+}
+
+.breadcrumb a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  color: #5f6368;
+}
+
+/* Section headings */
+h1,
+h2 {
+  padding: 0 24px;
+  color: #202124;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 24px 0;
+}
+
+h2 {
+  font-size: 16px;
+  color: #5f6368;
+  margin: 20px 0 12px 0;
+}
+
+/* Folders and Files containers */
+.folder-container,
+.file-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 0 24px;
+}
+
+.folder-item,
+.file-item {
+  background: white;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  padding: 16px;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.folder-item:hover,
+.file-item:hover {
+  background-color: #f1f3f4;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.folder-item a,
+.file-item a {
+  color: #202124;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.folder-item svg,
+.file-item svg {
+  color: #5f6368;
+  flex-shrink: 0;
+}
+
+.folder-item:hover svg,
+.file-item:hover svg {
+  color: #1a73e8;
+}
+
+/* Empty state messages */
+.empty-message {
+  color: #5f6368;
+  font-size: 14px;
+  padding: 16px 24px;
+}
+
+/* Delete button styling */
+.file-item form {
+  margin-left: auto;
+}
+
+.file-item form button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.file-item form button:hover {
+  background-color: #fee8e7;
+}
+
+.file-item form button svg {
+  color: #5f6368;
+  width: 20px;
+  height: 20px;
+  transition: color 0.2s;
+}
+
+.file-item form button:hover svg {
+  color: #d93025;
+}
+
+/* Actions section */
+.actions {
+  padding: 0 24px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 12px;
+}
+
+.actions button {
+  background: white;
+  color: #1a73e8;
+  border: 1px solid #dadce0;
+  padding: 8px 24px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.actions button:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* File upload form */
+.upload-form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.upload-form input[type="file"] {
+  font-size: 14px;
+  color: #5f6368;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .folder-container,
+  .file-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .actions {
+    flex-wrap: wrap;
+  }
+
+  .upload-form {
+    flex: 1;
+  }
+}

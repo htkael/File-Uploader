@@ -1,0 +1,18 @@
+<nav class="navbar">
+  <!-- Left: Brand -->
+  <a href="/" class="navbar-brand">
+    <i class="fas fa-hdd"></i>
+    Your Drive
+  </a>
+
+  <!-- Right: User -->
+  <div class="navbar-right">
+    <% if (locals.user) { %>
+    <div class="user-profile">
+      <strong><%= user.username %></strong>
+    </div>
+    <% } else { %>
+    <a href="/login" class="login-btn">Sign in</a>
+    <% } %>
+  </div>
+</nav>

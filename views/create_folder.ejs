@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Folder</title>
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <style>
+      .folder-container {
+        max-width: 500px;
+        margin: 80px auto 0;
+        padding: 24px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        border: 1px solid #dadce0;
+      }
+
+      h1 {
+        color: #202124;
+        font-size: 24px;
+        margin-bottom: 24px;
+      }
+
+      .folder-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      label {
+        font-size: 14px;
+        color: #5f6368;
+        font-weight: 500;
+      }
+
+      input[type="text"] {
+        padding: 8px 12px;
+        border: 1px solid #dadce0;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      input[type="text"]:focus {
+        outline: none;
+        border-color: #1a73e8;
+      }
+
+      button {
+        background: #1a73e8;
+        color: white;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 24px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        align-self: flex-end;
+        transition: background-color 0.2s;
+      }
+
+      button:hover {
+        background: #1557b0;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('navbar') %>
+
+    <div class="folder-container">
+      <h1>Create Folder</h1>
+      <form class="folder-form" action="/create_folder" method="POST">
+        <div class="form-group">
+          <label for="name">Folder Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            required
+            placeholder="Enter folder name"
+          />
+        </div>
+
+        <button type="submit">Create Folder</button>
+      </form>
+    </div>
+  </body>
+</html>

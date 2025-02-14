@@ -1,0 +1,166 @@
+/* public/css/home.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Google Sans", Arial, sans-serif;
+  background: #f8f9fa;
+}
+
+/* Section headings */
+h2 {
+  padding: 0 24px;
+  color: #5f6368;
+  font-size: 16px;
+  margin: 20px 0 12px 0;
+}
+
+/* First h2 needs extra top margin to account for navbar */
+h2:first-of-type {
+  margin-top: 80px;
+}
+
+/* Content area */
+.folderContainer,
+.fileContainer,
+.actions {
+  padding: 0 24px;
+  margin-bottom: 24px;
+}
+
+/* Grid layout for folders and files */
+.folderContainer,
+.fileContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+/* Common styles for folder and file items */
+.folder,
+.file {
+  background: white;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  padding: 16px;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.folder:hover,
+.file:hover {
+  background-color: #f1f3f4;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* SVG icons */
+.folder svg,
+.file svg {
+  color: #5f6368;
+  flex-shrink: 0;
+}
+
+.folder:hover svg,
+.file:hover svg {
+  color: #1a73e8;
+}
+
+/* Links and text */
+.folder a {
+  text-decoration: none;
+  color: inherit;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+h4 {
+  margin: 0;
+  font-size: 14px;
+  color: #202124;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Empty state messages */
+.empty-message {
+  color: #5f6368;
+  font-size: 14px;
+  padding: 16px 24px;
+}
+
+/* Delete button styling */
+.file form {
+  margin-left: auto;
+}
+
+.file form button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.file form button:hover {
+  background-color: #fee8e7;
+}
+
+.file form button svg {
+  color: #5f6368;
+  width: 20px;
+  height: 20px;
+  transition: color 0.2s;
+}
+
+.file form button:hover svg {
+  color: #d93025;
+}
+
+/* Action buttons */
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.actions button {
+  background: white;
+  color: #1a73e8;
+  border: 1px solid #dadce0;
+  padding: 8px 24px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.actions button:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Make the logout button look different */
+.actions a:last-child button {
+  color: #d93025;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .folderContainer,
+  .fileContainer {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .actions {
+    flex-wrap: wrap;
+  }
+}

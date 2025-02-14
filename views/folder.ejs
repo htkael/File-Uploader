@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= folder.name %></title>
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/folder.css" />
+  </head>
+  <body>
+    <%- include('navbar') %>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <% if (breadcrumb && breadcrumb.length > 0) { %> <%
+      breadcrumb.forEach(parent => { %>
+      <span class="breadcrumb-separator">></span>
+      <a href="/folder/<%= parent.id %>"><%= parent.name %></a>
+      <% }) %> <% } %>
+      <span class="breadcrumb-separator">></span>
+      <span><%= folder.name %></span>
+    </div>
+
+    <h1><%=folder.name%></h1>
+
+    <!-- Child Folders Section -->
+    <h2>Folders</h2>
+    <% if (folder.children && folder.children.length > 0) { %>
+    <div class="folder-container">
+      <% folder.children.forEach(childFolder => { %>
+      <div class="folder-item">
+        <a href="/folder/<%= childFolder.id %>">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
+            ></path>
+          </svg>
+          <%= childFolder.name %>
+        </a>
+      </div>
+      <% }) %>
+    </div>
+    <% } else { %>
+    <p class="empty-message">No folders</p>
+    <% } %>
+
+    <!-- Files Section -->
+    <h2>Files</h2>
+    <% if (folder.files && folder.files.length > 0) { %>
+    <div class="file-container">
+      <% folder.files.forEach(file => { %>
+      <div class="file-item">
+        <a href="/download/<%= file.id %>">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+            ></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <%= file.filename %>
+        </a>
+        <form action="/delete/<%=file.id%>" method="POST">
+          <button type="submit">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-trash-2"
+            >
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path
+                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+              ></path>
+              <line x1="10" y1="11" x2="10" y2="17"></line>
+              <line x1="14" y1="11" x2="14" y2="17"></line>
+            </svg>
+          </button>
+        </form>
+      </div>
+      <% }) %>
+    </div>
+    <% } else { %>
+    <p class="empty-message">No files</p>
+    <% } %>
+
+    <div class="actions">
+      <a href="/folder/<%= folder.id %>/create"
+        ><button>Create Folder</button></a
+      >
+
+      <form
+        class="upload-form"
+        action="/folder/<%= folder.id %>/upload"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <input type="file" name="uploaded_file" required />
+        <button type="submit">Upload File</button>
+      </form>
+    </div>
+  </body>
+</html>

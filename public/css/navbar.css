@@ -1,0 +1,73 @@
+/* public/css/navbar.css */
+.navbar {
+  background: white;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 20px;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.navbar-brand i {
+  margin-right: 10px;
+}
+
+.search-container {
+  flex: 1;
+  max-width: 720px;
+  margin: 0 20px;
+}
+
+.search-bar {
+  width: 100%;
+  position: relative;
+  background: var(--bg-hover);
+  border-radius: 8px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar i {
+  color: var(--text-secondary);
+  margin-right: 10px;
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile {
+  margin-left: 20px;
+}
+
+.user-profile img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+}

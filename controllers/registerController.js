@@ -1,5 +1,4 @@
-const { PrismaClient } = require("@prisma/client");
-const prisma = new PrismaClient();
+const prisma = require("../prisma/client");
 const validators = require("../middlewares/validators");
 const { validationResult } = require("express-validator");
 const registerValidation = validators.registerValidation;

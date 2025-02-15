@@ -137,6 +137,32 @@ h2 {
 .file-item form button:hover svg {
   color: #d93025;
 }
+.folder-item form button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.folder-item form button:hover {
+  background-color: #fee8e7;
+}
+
+.folder-item form button svg {
+  color: #5f6368;
+  width: 20px;
+  height: 20px;
+  transition: color 0.2s;
+}
+
+.folder-item form button:hover svg {
+  color: #d93025;
+}
 
 /* Actions section */
 .actions {

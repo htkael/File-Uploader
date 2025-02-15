@@ -50,6 +50,16 @@ h2:first-of-type {
   gap: 12px;
 }
 
+.folder a,
+.file a {
+  color: #202124;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
 .folder:hover,
 .file:hover {
   background-color: #f1f3f4;
@@ -122,6 +132,32 @@ h4 {
 }
 
 .file form button:hover svg {
+  color: #d93025;
+}
+.folder form button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.folder form button:hover {
+  background-color: #fee8e7;
+}
+
+.folder form button svg {
+  color: #5f6368;
+  width: 20px;
+  height: 20px;
+  transition: color 0.2s;
+}
+
+.folder form button:hover svg {
   color: #d93025;
 }
 

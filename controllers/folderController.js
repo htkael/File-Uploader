@@ -37,6 +37,7 @@ exports.folder = async (req, res) => {
       currentFolder = currentFolder.parent;
     }
     res.render("folder", {
+      user: req.user,
       folder: folder,
       children: folder.files,
       breadcrumb: breadcrumb,
@@ -57,4 +58,25 @@ exports.getCreateForm = async (req, res) => {
     },
   });
   res.render("folder_in_folder", { folder: folder });
+};
+
+exports.deleteFolder = async (req, res) => {
+  try {
+    const id = parseInt(req.params.folder_id);
+
+    await prisma.folder.delete({
+      where: {
+        id: id,
+      },
+    });
+    console.log(req.query);
+    if (req.query.folder_id) {
+      res.redirect(`/folder/${req.query.folder_id}`);
+    } else {
+      res.redirect("/");
+    }
+  } catch (error) {
+    console.log("Error details:", error); // Add more detailed error logging
+    res.status(500).send("Error deleting folder");
+  }
 };

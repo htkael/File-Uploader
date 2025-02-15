@@ -15,7 +15,10 @@ exports.uploadFile = async (req, res) => {
     const folderId = req.params.folder_id
       ? parseInt(req.params.folder_id)
       : null;
-    console.log(result);
+    console.log("Cloudinary upload result:", {
+      public_id: result.public_id,
+      url: result.secure_url,
+    });
     await prisma.file.create({
       data: {
         filename: file.name,

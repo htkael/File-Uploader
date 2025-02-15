@@ -6,6 +6,7 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 const passportConfig = (app) => {
+  app.use(passport.initialize());
   app.use(passport.session());
 
   passport.use(

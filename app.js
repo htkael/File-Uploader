@@ -19,6 +19,7 @@ app.use(
   fileUpload({
     useTempFiles: true,
     tempFileDir: "/tmp/",
+    createParentPath: true,
   })
 );
 app.set("trust proxy", 1);

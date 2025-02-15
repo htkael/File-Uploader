@@ -21,6 +21,7 @@ app.use(
     tempFileDir: "/tmp/",
   })
 );
+app.set("trust proxy", 1);
 
 sessionConfig(app);
 passportConfig(app);

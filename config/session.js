@@ -9,13 +9,15 @@ const sessionConfig = (app) => {
       cookie: {
         maxAge: 7 * 24 * 60 * 60 * 1000,
         secure: process.env.NODE_ENV === "production",
-        httpOnly: true, // ms
+        httpOnly: true,
+        sameSite: "lax", // Add this
       },
+      proxy: true, // Add this
       secret: process.env.SESSION_SECRET,
-      resave: true,
-      saveUninitialized: true,
+      resave: false,
+      saveUninitialized: false,
       store: new PrismaSessionStore(new PrismaClient(), {
-        checkPeriod: 2 * 60 * 1000, //ms
+        checkPeriod: 2 * 60 * 1000,
         dbRecordIdIsSessionId: true,
         dbRecordIdFunction: undefined,
       }),

@@ -1,7 +1,5 @@
 const cloudinary = require("cloudinary").v2;
 
-const cloudinary = require("cloudinary").v2;
-
 async function deleteCloudinaryFile(cloudinary_id) {
   try {
     console.log("Attempting to delete from Cloudinary:", cloudinary_id);

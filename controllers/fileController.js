@@ -2,6 +2,7 @@ const path = require("path");
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const cloudinary = require("../config/cloudinary");
+prismaMiddleware(prisma);
 
 exports.getUploadForm = async (req, res) => {
   res.render("upload", { user: req.user });

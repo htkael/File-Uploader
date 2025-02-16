@@ -5,11 +5,13 @@ exports.homePage = async (req, res) => {
   const folders = await prisma.folder.findMany({
     where: {
       parentId: null,
+      userId: req.user.id,
     },
   });
   const files = await prisma.file.findMany({
     where: {
       folderId: null,
+      userId: req.user.id,
     },
   });
   res.render("homepage", { user: user, folders: folders, files: files });

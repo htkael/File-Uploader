@@ -7,6 +7,7 @@ exports.folder = async (req, res) => {
     const folder = await prisma.folder.findUnique({
       where: {
         id: parseInt(folder_id),
+        userId: req.user.id,
       },
       include: {
         children: {
